@@ -13,7 +13,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  final ValueNotifier<int> index = ValueNotifier(2);
+  final ValueNotifier<int> index = ValueNotifier(0);
 
   @override
   Widget build(BuildContext context) {

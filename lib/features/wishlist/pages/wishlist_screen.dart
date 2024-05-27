@@ -11,7 +11,7 @@ class WishListScreen extends StatelessWidget {
         centerTitle: true,
         title: const Text('Wishlist'),
       ),
-      body: false
+      body: true
           ? Expanded(
               child: Container(
                   alignment: Alignment.center,

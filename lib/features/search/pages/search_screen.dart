@@ -59,7 +59,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 ),
               ),
             ),
-            false
+            true
                 ? Expanded(
                     child: Container(
                         alignment: Alignment.center,

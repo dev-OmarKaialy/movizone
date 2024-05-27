@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movizone/features/home/bloc/home_bloc.dart';
+import 'package:movizone/features/onboarding/pages/splash_screen.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(MultiBlocProvider(
+    providers: [
+      BlocProvider(
+        create: (context) => HomeBloc(),
+      ),
+    ],
+    child: const MainApp(),
+  ));
 }
 
 class MainApp extends StatelessWidget {
@@ -24,7 +34,7 @@ class MainApp extends StatelessWidget {
         appBarTheme: const AppBarTheme(
             backgroundColor: Color(0xff1F1D2B), foregroundColor: Colors.white),
       ),
-      home: Scaffold(body: Center(child: Text('MOVIZONE Project'))),
+      home: const Scaffold(body: SplashScreen()),
     );
   }
 }
