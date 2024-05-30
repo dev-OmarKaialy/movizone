@@ -12,3 +12,24 @@ class GetMoviesEvent extends HomeEvent {
     this.genreId,
   });
 }
+
+class GetDetailsEvent extends HomeEvent {
+  final String movieId;
+  GetDetailsEvent({
+    required this.movieId,
+  });
+}
+
+class GetReviewsEvent extends HomeEvent {
+  final String movieId;
+  GetReviewsEvent({
+    required this.movieId,
+  });
+}
+
+class GetCreditsEvent extends HomeEvent {
+  final String movieId;
+  GetCreditsEvent({
+    required this.movieId,
+  });
+}

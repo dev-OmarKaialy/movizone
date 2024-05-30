@@ -48,6 +48,7 @@ class GetApi<T> with HandlingExceptionRequest {
     } on SocketException {
       rethrow;
     } catch (e) {
+      print(e);
       rethrow;
     }
   }

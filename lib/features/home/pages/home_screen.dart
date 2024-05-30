@@ -67,35 +67,49 @@ class _HomeScreenState extends State<HomeScreen> {
                       Status.success => PageView.builder(
                           padEnds: true,
                           controller: pageController,
-                          itemBuilder: (context, index) => Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(20),
-                                  child: Stack(
-                                    alignment: Alignment.centerLeft,
-                                    children: [
-                                      Image.network(
-                                        ApiVariables().imageBaseUrl +
-                                            state.topRated[index % 5]
-                                                .backdropPath!,
-                                        fit: BoxFit.fill,
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                .8,
-                                      ),
-                                      Positioned(
-                                        bottom: 40,
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: Text(
-                                              state.topRated[index % 5].title!,
-                                              style: const TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.bold)),
+                          itemBuilder: (context, index) => GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) {
+                                      return MovieDetails(
+                                          id: state.topRated[index % 5].id!
+                                              .toString());
+                                    }),
+                                  );
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(20),
+                                    child: Stack(
+                                      alignment: Alignment.centerLeft,
+                                      children: [
+                                        Image.network(
+                                          ApiVariables().imageBaseUrl +
+                                              state.topRated[index % 5]
+                                                  .backdropPath!,
+                                          fit: BoxFit.fill,
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  .8,
                                         ),
-                                      )
-                                    ],
+                                        Positioned(
+                                          bottom: 40,
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Text(
+                                                state
+                                                    .topRated[index % 5].title!,
+                                                style: const TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 16,
+                                                    fontWeight:
+                                                        FontWeight.bold)),
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
                               )),
@@ -192,8 +206,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => const MovieDetails(
-                                            id: '',
+                                      builder: (context) => MovieDetails(
+                                            id: state.movies[index].id!
+                                                .toString(),
                                           )));
                             },
                             child: Container(
