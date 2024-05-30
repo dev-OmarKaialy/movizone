@@ -17,4 +17,15 @@ class ApiVariables {
   Uri getCategories() => _mainUri('/3/genre/movie/list');
   Uri getMovie(Map<String, String> params) =>
       _mainUri('/3/discover/movie', params: params);
+  Uri getMovieDetails(String movieId) => _mainUri(
+        '/3/movie/$movieId',
+      );
+  Uri getMovieCredits(String movieId) => _mainUri(
+        '/3/movie/$movieId/credits',
+      );
+  Uri getMovieReviews(String movieId) => _mainUri(
+        '/3/movie/$movieId/reviews',
+      );
+  Uri search(Map<String, String> params) =>
+      _mainUri('/3/search/movie', params: params);
 }

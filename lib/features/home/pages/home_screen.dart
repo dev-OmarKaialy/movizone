@@ -214,12 +214,10 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Container(
                               clipBehavior: Clip.hardEdge,
                               decoration: BoxDecoration(
-                                  color: Colors.red,
                                   borderRadius: BorderRadius.circular(10)),
-                              child: FadeInImage.assetNetwork(
-                                image: ApiVariables().imageBaseUrl +
+                              child: Image.network(
+                                ApiVariables().imageBaseUrl +
                                     state.movies[index].posterPath!,
-                                placeholder: 'assets/movie2.png',
                                 fit: BoxFit.cover,
                               ),
                             )),
