@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:movizone/core/unified_api/api_variables.dart';
 import 'package:movizone/core/unified_api/status.dart';
 
+import '../../wishlist/bloc/wishlist_bloc.dart';
 import '../bloc/home_bloc.dart';
 
 class MovieDetails extends StatefulWidget {
@@ -44,7 +45,10 @@ class _MovieDetailsState extends State<MovieDetails> {
                     padding: const EdgeInsets.all(8.0),
                     child: InkWell(
                       onTap: () {
-                        Navigator.pop(context);
+                        if (state.movieDetails != null) {
+                          context.read<WishlistBloc>().add(
+                              AddWishListEvent(movie: state.movieDetails!));
+                        }
                       },
                       child: const Icon(Icons.bookmark),
                     ),

@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:movizone/features/home/bloc/home_bloc.dart';
+import 'package:movizone/features/home/data/model/movie_details_model.dart';
 import 'package:movizone/features/onboarding/pages/splash_screen.dart';
+import 'package:movizone/features/wishlist/bloc/wishlist_bloc.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  Hive.registerAdapter(MovieDetailsResponseModelAdapter());
+  Hive.registerAdapter(GenreAdapter());
+  await Hive.openBox<MovieDetailsResponseModel>('wishlist');
   runApp(MultiBlocProvider(
     providers: [
       BlocProvider(
         create: (context) => HomeBloc(),
+      ),
+      BlocProvider(
+        create: (context) => WishlistBloc(),
       ),
     ],
     child: const MainApp(),

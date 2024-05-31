@@ -4,19 +4,26 @@
 
 import 'dart:convert';
 
+import 'package:hive_flutter/hive_flutter.dart';
+
+part 'movie_details_model.g.dart';
+
 MovieDetailsResponseModel movieDetailsResponseModelFromJson(String str) =>
     MovieDetailsResponseModel.fromJson(json.decode(str));
 
 String movieDetailsResponseModelToJson(MovieDetailsResponseModel data) =>
     json.encode(data.toJson());
 
+@HiveType(typeId: 0)
 class MovieDetailsResponseModel {
   final bool? adult;
   final String? backdropPath;
   final dynamic belongsToCollection;
   final int? budget;
+  @HiveField(5)
   final List<Genre>? genres;
   final String? homepage;
+  @HiveField(0)
   final int? id;
   final String? imdbId;
   final List<String>? originCountry;
@@ -24,17 +31,22 @@ class MovieDetailsResponseModel {
   final String? originalTitle;
   final String? overview;
   final double? popularity;
+  @HiveField(6)
   final String? posterPath;
   final List<ProductionCompany>? productionCompanies;
   final List<ProductionCountry>? productionCountries;
+  @HiveField(4)
   final DateTime? releaseDate;
   final int? revenue;
+  @HiveField(3)
   final int? runtime;
   final List<SpokenLanguage>? spokenLanguages;
   final String? status;
   final String? tagline;
+  @HiveField(1)
   final String? title;
   final bool? video;
+  @HiveField(2)
   final double? voteAverage;
   final int? voteCount;
 
@@ -153,8 +165,11 @@ class MovieDetailsResponseModel {
       };
 }
 
+@HiveType(typeId: 1)
 class Genre {
+  @HiveField(0)
   final int? id;
+  @HiveField(1)
   final String? name;
 
   Genre({
