@@ -4,7 +4,7 @@
 
 # MoviZone
 
-Welcome to **MoviZone**,training project. This course is designed to help you learn and master Flutter by building a comprehensive movie streaming application. Throughout this project, you will gain hands-on experience with Flutter development, state management, API integration, and UI design.
+Welcome to **MoviZone**,training project. This course is designed to help you learn and master Flutter by building a comprehensive movie application. Throughout this project, you will gain hands-on experience with Flutter development, state management, API integration, and UI design.
 
 ## Table of Contents
 
@@ -26,7 +26,7 @@ Welcome to **MoviZone**,training project. This course is designed to help you le
 
 ## Introduction
 
-This course will guide you through the process of developing **MoviZone**, a comprehensive movie streaming application, using Flutter. You'll learn how to create a feature-rich app from scratch, implementing everything from splash screens to API integration and animations.
+This course will guide you through the process of developing **MoviZone**, a comprehensive movie  application, using Flutter. You'll learn how to create a feature-rich app from scratch, implementing everything from splash screens to API integration and animations.
 ## Screenshots
 
 <p align="center">
