@@ -36,21 +36,21 @@ class _MainScreenState extends State<MainScreen> {
                 currentIndex: value,
                 items: [
                   BottomNavigationBarItem(
-                    label: 'home',
+                    label: 'Home',
                     icon: SvgPicture.asset('assets/home.svg',
                         colorFilter: ColorFilter.mode(
                             value == 0 ? const Color(0xff12cdd9) : Colors.grey,
                             BlendMode.srcIn)),
                   ),
                   BottomNavigationBarItem(
-                    label: 'search',
+                    label: 'Search',
                     icon: SvgPicture.asset('assets/search.svg',
                         colorFilter: ColorFilter.mode(
                             value == 1 ? const Color(0xff12cdd9) : Colors.grey,
                             BlendMode.srcIn)),
                   ),
                   BottomNavigationBarItem(
-                    label: 'bookmark',
+                    label: 'Wishlist',
                     icon: SvgPicture.asset('assets/bookmark.svg',
                         colorFilter: ColorFilter.mode(
                             value == 2 ? const Color(0xff12cdd9) : Colors.grey,

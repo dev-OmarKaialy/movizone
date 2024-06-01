@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:movizone/core/unified_api/api_variables.dart';
+import 'package:movizone/core/widgets/about_me.dart';
 
 import '../bloc/wishlist_bloc.dart';
 
@@ -19,6 +21,7 @@ class WishListScreen extends StatelessWidget {
           appBar: AppBar(
             centerTitle: true,
             title: const Text('Wishlist'),
+            actions: const [AboutMeIcon()],
           ),
           body: state.wishlistMovies.isEmpty
               ? Container(
@@ -29,7 +32,7 @@ class WishListScreen extends StatelessWidget {
                     children: [
                       Image.asset(
                         'assets/wishlist.png',
-                      ),
+                      ).animate().scale(),
                       const Text(
                         'There is no movie yet!',
                         textAlign: TextAlign.center,
@@ -37,15 +40,14 @@ class WishListScreen extends StatelessWidget {
                             color: Colors.white,
                             fontSize: 20,
                             fontWeight: FontWeight.bold),
-                      ),
+                      ).animate().fade(),
                       const Text(
-                        'Find your movie by Type title, categories, years, etc ',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                        ),
-                      ),
+                          'Find your movie by Type title, categories, years, etc ',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                          )).animate().fade(),
                     ],
                   ),
                 )
@@ -74,7 +76,7 @@ class WishListScreen extends StatelessWidget {
                                     fit: BoxFit.cover,
                                   ),
                                 ),
-                              ),
+                              ).animate().slideX(),
                               const SizedBox(
                                 width: 20,
                               ),
@@ -87,7 +89,7 @@ class WishListScreen extends StatelessWidget {
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,
                                         fontSize: 20),
-                                  ),
+                                  ).animate().fade(),
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Column(
@@ -109,7 +111,7 @@ class WishListScreen extends StatelessWidget {
                                                   fontSize: 12),
                                             )
                                           ],
-                                        ),
+                                        ).animate().slideY(),
                                         Row(
                                           children: [
                                             SvgPicture.asset(
@@ -125,7 +127,7 @@ class WishListScreen extends StatelessWidget {
                                                   fontSize: 12),
                                             )
                                           ],
-                                        ),
+                                        ).animate().slideY(),
                                         Row(
                                           children: [
                                             SvgPicture.asset(
@@ -140,7 +142,7 @@ class WishListScreen extends StatelessWidget {
                                                   fontSize: 12),
                                             )
                                           ],
-                                        ),
+                                        ).animate().slideY(),
                                         Row(
                                           children: [
                                             SvgPicture.asset(
@@ -157,7 +159,7 @@ class WishListScreen extends StatelessWidget {
                                                   fontSize: 12),
                                             )
                                           ],
-                                        ),
+                                        ).animate().slideY(),
                                       ],
                                     ),
                                   )

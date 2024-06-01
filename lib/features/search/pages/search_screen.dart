@@ -2,11 +2,13 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:movizone/core/unified_api/api_variables.dart';
 
 import '../../../core/unified_api/status.dart';
+import '../../../core/widgets/about_me.dart';
 import '../bloc/search_bloc.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -27,14 +29,8 @@ class _SearchScreenState extends State<SearchScreen> {
         appBar: AppBar(
           centerTitle: true,
           title: const Text('Search'),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: InkWell(
-                onTap: () {},
-                child: SvgPicture.asset('assets/about.svg'),
-              ),
-            ),
+          actions: const [
+            AboutMeIcon(),
           ],
         ),
         body: Padding(
@@ -102,23 +98,23 @@ class _SearchScreenState extends State<SearchScreen> {
                         borderRadius: BorderRadius.circular(20),
                       ),
                     ),
-                  ),
+                  ).animate().slideX(),
                   state.status == Status.initial
-                      ? const Expanded(
-                          child: Center(
+                      ? Expanded(
+                          child: const Center(
                             child: Text(
                               'Please Add Some Words To Search',
                               style:
                                   TextStyle(color: Colors.white, fontSize: 24),
                             ),
-                          ),
+                          ).animate().fade(),
                         )
                       : state.status == Status.loading
                           ? const Expanded(
                               child: Center(
                                 child: CircularProgressIndicator(),
                               ),
-                            )
+                            ).animate().fade()
                           : state.status == Status.failed
                               ? Expanded(
                                   child: Center(
@@ -130,7 +126,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                       },
                                       child: const Text('TryAgain'),
                                     ),
-                                  ),
+                                  ).animate().fade(),
                                 )
                               : state.searchResults.isEmpty
                                   ? Expanded(
@@ -144,7 +140,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                             children: [
                                               Image.asset(
                                                 'assets/noresult.png',
-                                              ),
+                                              ).animate().scale(),
                                               const Text(
                                                 'we are sorry, we can not find the movie :(',
                                                 textAlign: TextAlign.center,
@@ -153,7 +149,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                                     fontSize: 20,
                                                     fontWeight:
                                                         FontWeight.bold),
-                                              ),
+                                              ).animate().fade(),
                                               const Text(
                                                 'Find your movie by Type title, categories, years, etc ',
                                                 textAlign: TextAlign.center,
@@ -161,7 +157,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                                   color: Colors.white,
                                                   fontSize: 14,
                                                 ),
-                                              ),
+                                              ).animate().fade(),
                                             ],
                                           )),
                                     )
@@ -190,7 +186,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                                       fit: BoxFit.cover,
                                                     ),
                                                   ),
-                                                ),
+                                                ).animate().slideX(),
                                                 const SizedBox(
                                                   width: 20,
                                                 ),
@@ -206,7 +202,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                                           fontWeight:
                                                               FontWeight.bold,
                                                           fontSize: 20),
-                                                    ),
+                                                    ).animate().fade(),
                                                     Padding(
                                                       padding:
                                                           const EdgeInsets.all(
@@ -236,7 +232,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                                                         12),
                                                               )
                                                             ],
-                                                          ),
+                                                          ).animate().slideY(),
                                                           Row(
                                                             children: [
                                                               SvgPicture.asset(
@@ -253,7 +249,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                                                         12),
                                                               )
                                                             ],
-                                                          ),
+                                                          ).animate().slideY(),
                                                           Row(
                                                             children: [
                                                               SvgPicture.asset(
@@ -270,7 +266,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                                                         12),
                                                               )
                                                             ],
-                                                          ),
+                                                          ).animate().slideY(),
                                                           Row(
                                                             children: [
                                                               SvgPicture.asset(
@@ -291,7 +287,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                                                         12),
                                                               )
                                                             ],
-                                                          ),
+                                                          ).animate().slideY(),
                                                         ],
                                                       ),
                                                     )

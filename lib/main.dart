@@ -11,17 +11,19 @@ void main() async {
   Hive.registerAdapter(MovieDetailsResponseModelAdapter());
   Hive.registerAdapter(GenreAdapter());
   await Hive.openBox<MovieDetailsResponseModel>('wishlist');
-  runApp(MultiBlocProvider(
-    providers: [
-      BlocProvider(
-        create: (context) => HomeBloc(),
-      ),
-      BlocProvider(
-        create: (context) => WishlistBloc(),
-      ),
-    ],
-    child: const MainApp(),
-  ));
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => HomeBloc(),
+        ),
+        BlocProvider(
+          create: (context) => WishlistBloc(),
+        ),
+      ],
+      child: const MainApp(),
+    ),
+  );
 }
 
 class MainApp extends StatelessWidget {
@@ -32,6 +34,11 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: Theme.of(context).copyWith(
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+              backgroundColor: const Color.fromARGB(255, 18, 16, 36),
+              foregroundColor: const Color(0xff12cdd9)),
+        ),
         bottomNavigationBarTheme: const BottomNavigationBarThemeData(
             backgroundColor: Color(0xff242A32),
             selectedLabelStyle: TextStyle(

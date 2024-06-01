@@ -3,7 +3,7 @@ class ApiVariables {
   final _host = 'api.themoviedb.org';
 
   final port = 8000;
-  final imageBaseUrl = 'https://image.tmdb.org/t/p/w500';
+  final imageBaseUrl = 'https://image.tmdb.org/t/p/w200';
   Uri _mainUri(String path, {Map<String, String>? params}) {
     return Uri(
       host: _host,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:movizone/core/widgets/custom_painter.dart';
 import 'package:movizone/features/main/pages/main_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -63,7 +64,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 width: MediaQuery.sizeOf(context).width,
               ),
             ),
-          ),
+          ).animate().fade(),
         ),
         Positioned(
           bottom: 0,
@@ -82,17 +83,19 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Text(onBoardingList[value].title,
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold)),
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold))
+                          .animate()
+                          .slideX(),
                       Text(onBoardingList[value].subTitle,
                           textAlign: TextAlign.center,
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 16,
-                          )),
+                          )).animate().slideX(),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
@@ -129,7 +132,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                     Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => MainScreen(),
+                                        builder: (context) =>
+                                            const MainScreen(),
                                       ),
                                     );
                                   }

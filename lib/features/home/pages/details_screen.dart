@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:movizone/core/unified_api/api_variables.dart';
@@ -76,7 +77,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                                         .3 * MediaQuery.sizeOf(context).height,
                                     width: double.infinity,
                                   ),
-                                ),
+                                ).animate().slideX(),
                               ],
                             ),
                           ),
@@ -95,7 +96,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                                     height: 160,
                                     fit: BoxFit.cover,
                                   ),
-                                ),
+                                ).animate().slideY(),
                                 const SizedBox(
                                   width: 25,
                                 ),
@@ -110,7 +111,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                                     maxLines: 2,
                                     softWrap: true,
                                   ),
-                                )
+                                ).animate().fade()
                               ],
                             ),
                           )
@@ -154,7 +155,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                               style: const TextStyle(color: Colors.white),
                             ),
                           ],
-                        ),
+                        ).animate().scale(),
                       ),
                       const SizedBox(
                         height: 10,
@@ -194,13 +195,13 @@ class _MovieDetailsState extends State<MovieDetails> {
                                 state.movieDetails!.overview!,
                                 style: const TextStyle(color: Colors.white),
                               ),
-                            ),
+                            ).animate().fade(),
                             ReviewsWidget(
                               state: state,
-                            ),
+                            ).animate().fade(),
                             CastWidget(
                               state: state,
-                            )
+                            ).animate().fade()
                           ],
                         ),
                       )
@@ -216,6 +217,8 @@ class _MovieDetailsState extends State<MovieDetails> {
                     child: const Text('Try Again'),
                   )),
                 _ => const Center(child: CircularProgressIndicator())
+                    .animate()
+                    .fade()
               },
             ));
       },

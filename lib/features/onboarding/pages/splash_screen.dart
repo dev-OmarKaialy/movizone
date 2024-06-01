@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 import 'onboarding_screen.dart';
 
@@ -25,15 +26,10 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
         body: Center(
       child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Image.asset('assets/splash.png'),
+        Image.asset('assets/splash.png').animate().fade(),
         const SizedBox(
           height: 15,
         ),
-        const Text('MOVIZONE',
-            style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 28,
-                color: Color(0xff12CDD9)))
       ]),
     ));
   }
