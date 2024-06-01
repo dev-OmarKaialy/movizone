@@ -1,3 +1,7 @@
+
+### Pray For Palestine
+![Pray For Palestine](screenshots/palestine.jpg)
+
 # MoviZone
 
 Welcome to **MoviZone**,training project. This course is designed to help you learn and master Flutter by building a comprehensive movie streaming application. Throughout this project, you will gain hands-on experience with Flutter development, state management, API integration, and UI design.
