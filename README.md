@@ -59,7 +59,7 @@ To get a local copy up and running, follow these simple steps.
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/movizone.git
+git clone https://github.com/dev-OmarKaialy/movizone.git
 cd movizone
 ```
 
